@@ -14,3 +14,9 @@ A docker wrapper for running a minecraft server with automated backups. It inclu
 5. If your server version becomes outdated, run the script again to build a new image with the latest version.
   
 By default the backups run at 05:30.  To change this, include the environment variable CUSTOM_BACKUP_TIME and set it to a four-character string of the desired hours and minutes, eg. 0530.
+
+To run a command in the minecraft server console, just navigate to your minecraft data directory and replace the file `cmdfile` with one containing your command, like this:
+
+`echo "time set day" > cmdfile`
+
+The file will be truncated and the command will be run.
