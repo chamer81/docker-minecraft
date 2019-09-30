@@ -12,9 +12,13 @@ A docker wrapper for running a minecraft server with automated backups. It inclu
 
 4. Minecraft generates a file called `eula.txt` in the data directory.  You must edit this file from "false" to "true" to indicate that you accept the eula.  Then stop and restart the docker image.
 5. If your server version becomes outdated, run the script again to build a new image with the latest version.
-  
+
+*Note: if you run this with docker-compose (see the included docker-compose.yml file), the "restart: always" command allows the server to automatically restart when/if it crashes.
+
+## Configure backups
 By default the backups run at 05:30.  To change this, include the environment variable CUSTOM_BACKUP_TIME and set it to a four-character string of the desired hours and minutes, eg. 0530.
 
+## Commands in the console
 To run a command in the minecraft server console, just navigate to your minecraft data directory and replace the file `cmdfile` with one containing your command, like this:
 
 `echo "time set day" > cmdfile`
