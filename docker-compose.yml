@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  minecraft:
+    image: minecraft:1.14.4
+    restart: always
+    volumes:
+      - /home/chanson/workarea/svn/docker/data:/etc/minecraft/data:rw
+      - /home/chanson/workarea/svn/docker/backups:/etc/minecraft/backups:rw
+    ports:
+      - "25565:25565"
+    environment:
+      CUSTOM_BACKUP_TIME: 0620
+
