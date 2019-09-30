@@ -8,7 +8,7 @@ A docker wrapper for running a minecraft server with automated backups. It inclu
 
 `docker run -d -p 25565:25565 -v <your minecraft data dir>:/etc/minecraft/data -v <your minecraft backups dir>:/etc/minecraft/backups minecraft:<server version>`
 
-*Note: the <server version> is found in the name of the server file that is downloaded by updateServer.py*
+*Note: the server version is found in the name of the server file that is downloaded by updateServer.py*
 
 4. Minecraft generates a file called `eula.txt` in the data directory.  You must edit this file from "false" to "true" to indicate that you accept the eula.  Then stop and restart the docker image.
 5. If your server version becomes outdated, run the script again to build a new image with the latest version.
