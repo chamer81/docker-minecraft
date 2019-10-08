@@ -24,3 +24,6 @@ To run a command in the minecraft server console, just navigate to your minecraf
 `echo "time set day" > cmdfile`
 
 The file will be truncated and the command will be run.
+
+## Licensing
+The reason I don't push this to docker hub myself is that the docker image will contain a copy of the minecraft server jar which I cannot legally redistribute.  But when you build this image locally, you will download the minecraft server jar for your own use, which is legal.
