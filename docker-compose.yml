@@ -2,11 +2,11 @@ version: '3.3'
 
 services:
   minecraft:
-    image: minecraft:1.14.4
+    image: minecraft:<server version>
     restart: always
     volumes:
-      - /home/chanson/workarea/svn/docker/data:/etc/minecraft/data:rw
-      - /home/chanson/workarea/svn/docker/backups:/etc/minecraft/backups:rw
+      - <your minecraft data dir>:/etc/minecraft/data:rw
+      - <your minecraft backups dir>:/etc/minecraft/backups:rw
     ports:
       - "25565:25565"
     environment:
