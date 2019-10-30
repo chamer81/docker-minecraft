@@ -38,7 +38,6 @@ def build_if_changed(latest_version):
         st = os.stat(server_in_image)
         os.chmod(server_in_image, st.st_mode | stat.S_IEXEC)
         subprocess.call(["docker", "build", "-t", "minecraft:%s" % latest_version, "minecraft"])
-        subprocess.call(["docker", "build", "-t", "latterdaymainstreet.com:5000/minecraft", "minecraft"])
 
 def main(argv):
     response = urlopen('https://launchermeta.mojang.com/mc/game/version_manifest.json')
