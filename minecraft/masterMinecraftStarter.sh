@@ -10,6 +10,7 @@ else
 fi
 
 cd /etc/minecraft/data
+cp /usr/local/bin/minecraft_version .
 
 # pipe the output of the command reader as commands into the minecraft server terminal
 /usr/local/bin/commandReader.sh /etc/minecraft/data $LEVEL_NAME | /usr/local/bin/launchserver.sh

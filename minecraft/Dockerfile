@@ -11,6 +11,7 @@ COPY launchserver.sh /usr/local/bin/
 COPY copyMinecraftData.sh /usr/local/bin/
 COPY commandReader.sh /usr/local/bin/
 COPY masterMinecraftStarter.sh /usr/local/bin/
+COPY minecraft_version /usr/local/bin/minecraft_version
 
 # Expose the port for the server to listen on
 EXPOSE 25565

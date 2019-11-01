@@ -9,6 +9,7 @@ from os.path import join, isfile
 import subprocess
 from shutil import copy, move
 import stat
+import codecs
 
 def get_download_url(latest_manifest, latest_version):
     for version in latest_manifest['versions']:
@@ -37,6 +38,8 @@ def build_if_changed(latest_version):
         copy(latest_file, server_in_image)
         st = os.stat(server_in_image)
         os.chmod(server_in_image, st.st_mode | stat.S_IEXEC)
+        with codecs.open('minecraft/minecraft_version', 'w', 'utf-8') as versionfile:
+            versionfile.write(latest_version)
         subprocess.call(["docker", "build", "-t", "minecraft:%s" % latest_version, "minecraft"])
 
 def main(argv):
