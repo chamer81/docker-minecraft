@@ -3,10 +3,13 @@
 # Total memory
 memory_kb=`awk '/MemTotal/{print $2}' /proc/meminfo`
 
+NUM_SERVERS=${NUM_SERVERS:-1}
+SERVER_FACTOR=$((200*NUM_SERVERS))
+
 # Calculate minimum memory
-memory_min=$(($memory_kb/200*30))
+memory_min=$((30*$memory_kb/$SERVER_FACTOR))
 # Calculate maximum memory
-memory_max=$(($memory_kb/200*80))
+memory_max=$((80*$memory_kb/$SERVER_FACTOR))
 
 cd /etc/minecraft/data
 
