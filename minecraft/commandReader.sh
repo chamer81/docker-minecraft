@@ -19,7 +19,7 @@ do
            echo save-off ;
            echo save-all ;
            sleep 1 ;
-           /usr/local/copyMinecraftData.sh $1 $2 > save.log
+           /usr/local/bin/copyMinecraftData.sh $1 $2 > save.log 2> save.err
            echo save-on ;
            # wait a minute to avoid saving twice:
            sleep 60 ;
