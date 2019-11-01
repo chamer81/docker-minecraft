@@ -20,6 +20,8 @@ def get_download_url(latest_manifest, latest_version):
 
 
 def build_if_changed(latest_version):
+    with codecs.open('minecraft/minecraft_version', 'w', 'utf-8') as versionfile:
+        versionfile.write(latest_version)
     latest_file = 'minecraft_server.%s.jar' % (latest_version)
     if isfile(latest_file):
         print('file exists')
@@ -38,8 +40,6 @@ def build_if_changed(latest_version):
         copy(latest_file, server_in_image)
         st = os.stat(server_in_image)
         os.chmod(server_in_image, st.st_mode | stat.S_IEXEC)
-        with codecs.open('minecraft/minecraft_version', 'w', 'utf-8') as versionfile:
-            versionfile.write(latest_version)
         subprocess.call(["docker", "build", "-t", "minecraft:%s" % latest_version, "minecraft"])
 
 def main(argv):
