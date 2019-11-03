@@ -4,7 +4,7 @@
 
 FROM debian:10
 
-RUN apt-get update && apt-get install -y default-jdk
+RUN apt-get update && apt-get install -y default-jdk && apt-get install -y rsync
 
 COPY minecraft_server.jar /usr/local/bin/
 COPY launchserver.sh /usr/local/bin/
