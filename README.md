@@ -3,15 +3,11 @@ A docker wrapper for running a minecraft server with automated backups. It inclu
 
 # How to use it:
 1. clone this repo
-2. run updateServer.py to fetch the latest minecraft server and build the docker container.
-3. run the docker container as follows:
+2. run the docker container as follows:
 
 `docker run -d -p 25565:25565 -v <your minecraft data dir>:/etc/minecraft/data -v <your minecraft backups dir>:/etc/minecraft/backups minecraft:<server version>`
 
-*Note: the server version is found in the name of the server file that is downloaded by updateServer.py*
-
 4. Minecraft generates a file called `eula.txt` in the data directory.  You must edit this file from "false" to "true" to indicate that you accept the eula.  Then stop and restart the docker image.
-5. If your server version becomes outdated, run the script again to build a new image with the latest version.
 
 *Note:* if you run this with docker-compose (see the included docker-compose.yml file), the "restart: always" command causes the server to automatically restart when/if it crashes or if you stop it by writing "stop" in the cmdfile.
 
@@ -24,6 +20,3 @@ To run a command in the minecraft server console, just navigate to your minecraf
 `echo "time set day" > cmdfile`
 
 The file will be truncated and the command will be run.
-
-## Licensing
-The reason I don't push this to docker hub myself is that the docker image will contain a copy of the minecraft server jar which I cannot legally redistribute.  But when you build this image locally, you will download the minecraft server jar for your own use, which is legal.
