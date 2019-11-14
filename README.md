@@ -3,11 +3,11 @@ A docker wrapper for running a minecraft server with automated backups. It inclu
 
 # How to use it:
 1. clone this repo
-2. run the docker container as follows:
+2. run the docker container as follows (or use the included `docker-compose.yml` file):
 
 `docker run -d -p 25565:25565 -v <your minecraft data dir>:/etc/minecraft/data -v <your minecraft backups dir>:/etc/minecraft/backups minecraft:<server version>`
 
-4. Minecraft generates a file called `eula.txt` in the data directory.  You must edit this file from "false" to "true" to indicate that you accept the eula.  Then stop and restart the docker image.
+3. Minecraft generates a file called `eula.txt` in the data directory.  You must edit this file from "false" to "true" to indicate that you accept the eula.  Then stop and restart the docker image.
 
 *Note:* if you run this with docker-compose (see the included docker-compose.yml file), the "restart: always" command causes the server to automatically restart when/if it crashes or if you stop it by writing "stop" in the cmdfile.
 
