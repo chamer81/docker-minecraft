@@ -13,4 +13,4 @@ memory_max=$((80*$memory_kb/$SERVER_FACTOR))
 
 cd /etc/minecraft/data
 
-java -jar -Xms${memory_min}K -Xmx${memory_max}K /usr/local/bin/minecraft_server.jar nogui
+java -jar -Xms${memory_min}K -Xmx${memory_max}K /etc/minecraft/bin/minecraft_server.jar nogui
