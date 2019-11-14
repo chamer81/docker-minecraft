@@ -19,7 +19,7 @@ def get_download_url(latest_manifest, latest_version):
             return meta_json['downloads']['server']['url']
 
 
-def update_if_changed(latest_version, confirm_only=False):
+def update_if_changed(latest_manifest, latest_version, confirm_only=False):
     latest_file = '/etc/minecraft/bin/minecraft_server.%s.jar' % (latest_version)
     if isfile(latest_file):
         #print('file exists')
@@ -48,11 +48,11 @@ def main(argv):
     latest_manifest = json.load(response)
     latest_version = latest_manifest["latest"]["release"]
     #print('latest version %s' % latest_version)
-    if (len(argv)) > 1 and argv[1] == 'confirm_only'
+    if (len(argv)) > 1 and argv[1] == 'confirm_only':
         confirm_only = True
     else:
         confirm_only = False
-    update_if_changed(latest_version, confirm_only)
+    update_if_changed(latest_manifest, latest_version, confirm_only)
 
 if __name__ == "__main__":
     __file__ = sys.argv[0]
