@@ -7,9 +7,9 @@ NUM_SERVERS=${NUM_SERVERS:-1}
 SERVER_FACTOR=$((200*NUM_SERVERS))
 
 # Calculate minimum memory
-memory_min=$((30*$memory_kb/$SERVER_FACTOR))
+memory_min=$(($memory_kb/200*30))
 # Calculate maximum memory
-memory_max=$((80*$memory_kb/$SERVER_FACTOR))
+memory_max=$(($memory_kb/200*80))
 
 cd /etc/minecraft/data
 
