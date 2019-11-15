@@ -4,7 +4,7 @@
 
 FROM debian:10
 
-RUN apt-get update && apt-get install -y default-jdk rsync python3
+RUN apt-get update && apt-get install -y default-jdk rsync python3 procps
 
 COPY launchserver.sh /usr/local/bin/
 COPY copyMinecraftData.sh /usr/local/bin/

@@ -39,6 +39,13 @@ do
                # wait a minute to avoid saving twice:
                sleep 60 ;
            fi
+           # now kill this script if minecraft crashed
+           RUNNING=`ps -ef | grep minecraft.jar | grep -v grep`
+           if [ -n "$RUNNING" ]; then
+             date > running.txt
+           else
+             COMMAND=STOP_CMD
+           fi
        fi
 
 done
