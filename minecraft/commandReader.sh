@@ -41,6 +41,9 @@ do
            fi
            # now kill this script if minecraft crashed
            RUNNING=`ps -ef | grep minecraft.jar | grep -v grep`
+           # maybe change command to:
+           # `lsof -i -P -n | grep LISTEN | grep java | grep <portnum> | grep -v grep`
+           # to check that it's not just running, but listening...
            if [ -n "$RUNNING" ]; then
              date > running.txt
            else
