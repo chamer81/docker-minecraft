@@ -32,7 +32,8 @@ do
            retVal=$?
            if [ $retVal -ne 0 ]; then
                echo $STOP_CMD
-               COMMAND=$STOP_CMD
+               echo "server update" >> running.txt
+               break
            else
                # back to normal, continuously save world data:
                echo save-on ;
@@ -49,7 +50,8 @@ do
         if [ -n "$RUNNING" ]; then
           date > running.txt
         else
-          COMMAND=$STOP_CMD
+          echo "server crash" >> running.txt
+          break
         fi
 done
 
