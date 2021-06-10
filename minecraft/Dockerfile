@@ -2,9 +2,9 @@
 # Minecraft server with custom commands and backups
 #
 
-FROM debian:10
+FROM ubuntu:focal
 
-RUN apt-get update && apt-get install -y default-jdk rsync python3 procps
+RUN apt-get update && apt-get install -y openjdk-16-jre-headless rsync python3 procps
 
 COPY launchserver.sh /usr/local/bin/
 COPY copyMinecraftData.sh /usr/local/bin/
