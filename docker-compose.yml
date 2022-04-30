@@ -2,7 +2,8 @@ version: '3.3'
 
 services:
   minecraft:
-    image: chamer81/minecraft:jammy
+    build:
+      context: minecraft
     restart: always
     volumes:
       - ./volumes/data:/etc/minecraft/data:rw
