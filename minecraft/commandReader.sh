@@ -3,6 +3,8 @@
 STOP_CMD=stop
 BACKUP_TIME=${CUSTOM_BACKUP_TIME:-0530}
 
+/usr/local/bin/getLatestServer.py
+
 touch cmdfile
 # clear any existing commands:
 truncate --size 0 cmdfile
